@@ -1,1 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Car Price</title>    
+    <link rel="stylesheet" href="static\css\style.css">
+</head>
 
+<body bgcolor="skyblue">
+
+<p align="center" class="heading"><b>Using car price predictions</b></p>
+<div align="center">
+    <form action="{{ url_for('predict')}}" method="POST">
+        <div class="b"><b>Year</b>:
+            <input class="a" type="Number" name ="Year" required="required"></div>
+            <br>
+
+        <div class="b"><b>Present Price(in Lakhs)</b>:
+            <input type="Number" name="Present_Price" required="required" class="a"></div>
+            <br>
+
+        <div class="b"><b>Kilmeters Driven</b>:
+            <input type="Number" name="Kms_Driven" required="required" class="a"></div>
+            <br>
+
+        <div class="b"><b>Number of previous Owners</b>:
+            <select name="Owner" class="a">
+            <option value="0">0</option>
+            <option value="1">1</option></select></div>
+            <br>
+
+        <div class="b"><b>Fuel Type</b>:
+            <select name="Fuel_Type_Petrol" class="a">
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="CNG">CNG</option></select></div>
+            <br>
+
+        <div class="b"><b>Are you Dealer or Individual</b>:
+            <select name="Seller_Type_Individual" class="a">
+            <option value="Dealer">Dealer</option>
+            <option value="Individual">Individual</option></select></div>
+            <br>
+
+        <div class="b"><b>Transmission Type</b>:
+            <select name="Transmission_Manual" class="a">
+            <option value="Manual">Manual</option>
+            <option value="Automatic">Automatic</option>
+        </select></div>
+        
+        <br>
+
+        <div class="c" align="center"><button type="submit" class="d">Submit</button></div>
+    </form></div>
+<p align="center" class="heading">{{ prediction_text }}</p>
+</body>
+</html>
